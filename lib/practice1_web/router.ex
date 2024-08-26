@@ -17,8 +17,16 @@ defmodule Practice1Web.Router do
   scope "/", Practice1Web do
     pipe_through :browser
 
-    get "/", PageController, :home
+    get "/", WorkerController, :list_worker
+    get "/create", WorkerController, :page_create
+    get "/:id" , WorkerController, :show_detail
+    get "/:id/edit", WorkerController, :edit
+    delete "/:id", WorkerController, :delete
+    post "/create", WorkerController, :create_worker
+
+    post "/search", WorkerController, :search
   end
+
 
   # Other scopes may use custom stacks.
   # scope "/api", Practice1Web do

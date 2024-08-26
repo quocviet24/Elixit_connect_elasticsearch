@@ -7,4 +7,16 @@ defmodule Practice1.Dbcontext.WorkerDb do
     |> Worker.changeset(attr)
     |> Repo.insert()
   end
+
+  def get_all_worker() do
+    Repo.all(Worker)
+  end
+
+  def get_worker_id(id) do
+    Repo.get!(Worker, id)
+  end
+
+  def delete_by_id(%Worker{} = worker) do
+    Repo.delete(worker)
+  end
 end

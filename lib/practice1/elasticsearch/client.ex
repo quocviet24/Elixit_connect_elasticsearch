@@ -36,4 +36,25 @@ defmodule Practice1.Elasticsearch.Client do
     end
   end
 
+  def delete_all(index_name) do
+    url = "#{@url}/#{index_name}/_delete_by_query"
+    body = %{
+      "query" => %{
+        "match_all" => %{}
+      }
+    }
+    headers = [
+      {"Content-Type", "application/json"},
+      {"Authorization", "Basic " <> Base.encode64("#{@username}:#{@password}")}
+    ]
+
+    case HTTPoison.post(url, Jason.encode!(body), headers) do
+      {:ok, %HTTPoison.Response{status_code: 200}} ->
+        {:ok, "Deleted all documents in #{index_name}"}
+      {:error, %HTTPoison.Error{reason: reason}} ->
+        IO.inspect(reason, label: "Elasticsearch Error")
+        {:error, reason}
+    end
+  end
+
 end

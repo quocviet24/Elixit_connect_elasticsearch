@@ -1,0 +1,19 @@
+<.header>
+  New worker
+  <:subtitle>Fill this form to add new worker in to your database</:subtitle>
+</.header>
+
+<.simple_form :let={f} for={@changeset} action={~p"/create"}>
+  <.error :if={@changeset.action}>
+    Oops, something went wrong! Please check the errors below.
+  </.error>
+   <.input field={f[:name]} type="text" label="Name" />
+  <.input field={f[:age]} type="number" label="Age" />
+  <.input field={f[:salary]} type="number" label="Salary" />
+  <.input field={f[:department_name]} type="text" label="Department" />
+  <:actions>
+    <.button>Save worker</.button>
+  </:actions>
+</.simple_form>
+
+<.back navigate={~p"/"}>Back to works</.back>
