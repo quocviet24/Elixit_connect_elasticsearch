@@ -32,6 +32,8 @@ defmodule Practice1.MixProject do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
+      {:redix, "~> 1.5"},
+      {:castore, ">= 0.0.0"},
       {:elasticsearch, "~>1.0.0"},
       {:phoenix, "~> 1.7.14"},
       {:phoenix_ecto, "~> 4.5"},

@@ -18,6 +18,13 @@ config :practice1, Practice1.Elasticsearch.Cluster,
   username: "elastic",
   password: "123456"
 
+  config :practice1, Practice1.Redis,
+  host: "localhost",
+  port: 6379,
+  database: 0,
+  password: nil,
+  timeout: 5000
+
 # Configures the endpoint
 config :practice1, Practice1Web.Endpoint,
   url: [host: "localhost"],

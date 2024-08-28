@@ -25,12 +25,12 @@
   <:col :let={worker} label="Age"><%= worker["age"] %></:col>
   <:col :let={worker} label="Salary"><%= worker["salary"] %></:col>
   <:col :let={worker} label="Department"><%= worker["department_name"] %></:col>
-  <:action :let={worker}>
+  <%!-- <:action :let={worker}>
     <.link navigate={~p"/#{worker["id"]}/edit"}>Edit</.link>
   </:action>
   <:action :let={worker}>
     <.link href={~p"/#{worker["id"]}"} method="delete" data-confirm="Are you sure?">
       Delete
     </.link>
-  </:action>
+  </:action> --%>
 </.table>

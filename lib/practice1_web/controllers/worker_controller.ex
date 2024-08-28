@@ -52,8 +52,8 @@ defmodule Practice1Web.WorkerController do
     end
   end
 
-  def show_detail(conn, %{"id" => id}) do
-  end
+  # def show_detail(conn, %{"id" => id}) do
+  # end
 
   def delete(conn, %{"id" => id}) do
     worker = WorkerDb.get_worker_id(id)

@@ -11,6 +11,7 @@ defmodule Practice1.Application do
       Practice1Web.Telemetry,
       Practice1.Repo,
       Practice1.Elasticsearch.Cluster,
+      {Redix, name: :redis_connection, host: "redis-stack-server", port: 6379},
       {DNSCluster, query: Application.get_env(:practice1, :dns_cluster_query) || :ignore},
       {Phoenix.PubSub, name: Practice1.PubSub},
       # Start the Finch HTTP client for sending emails
