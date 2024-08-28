@@ -70,6 +70,32 @@ defmodule Practice1.Sync do
     end
   end
 
+  def search_worker_id(id) do
+    query = %{
+      "query" => %{
+        "term" => %{
+          "_id" => id
+        }
+      }
+    }
+
+    case Client.search("workers_index", query) do
+      {:ok, %{"hits" => %{"hits" => [hit | _]}}} ->
+        worker = hit["_source"]
+        {:ok, worker}
+
+      {:ok, %{"hits" => %{"hits" => []}}} ->
+        {:error, "Worker not found"}
+
+      {:error, %HTTPoison.Error{reason: reason}} ->
+        IO.inspect(reason, label: "Elasticsearch Error")
+        {:error, reason}
+
+      _ ->
+        {:error, "Unexpected error"}
+    end
+  end
+
 
   def get_all_worker() do
     # Sử dụng truy vấn match_all để lấy tất cả tài liệu

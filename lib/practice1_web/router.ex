@@ -19,12 +19,13 @@ defmodule Practice1Web.Router do
 
     get "/", WorkerController, :list_worker
     get "/create", WorkerController, :page_create
-    get "/:id" , WorkerController, :show_detail
+    get "/worker/:id" , WorkerController, :show_detail
     get "/:id/edit", WorkerController, :edit
     delete "/:id", WorkerController, :delete
     post "/create", WorkerController, :create_worker
-
     post "/search", WorkerController, :search
+    get "/redis", WorkerController, :all_redis
+    get "/postgres_all", WorkerController, :index
   end
 
 

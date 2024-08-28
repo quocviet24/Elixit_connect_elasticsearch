@@ -15,5 +15,4 @@ defmodule Practice1.Module.Worker do
     worker |> cast(attr, [:name, :age, :salary, :department_name]) |> validate_required([:name, :age, :salary, :department_name])
   end
 
-
 end
