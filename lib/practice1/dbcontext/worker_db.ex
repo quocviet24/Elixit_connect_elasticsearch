@@ -20,8 +20,12 @@ defmodule Practice1.Dbcontext.WorkerDb do
     Repo.delete(worker)
   end
 
+  def delete_all_workers do
+    Repo.delete_all(Worker)
+  end
+
   def create_workers do
-    for i <- 1..10000 do
+    for i <- 1..10 do
       %{
         name: "Worker #{i}",
         age: Enum.random(20..60),

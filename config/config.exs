@@ -14,9 +14,9 @@ config :practice1,
 config :practice1, Practice1.Elasticsearch.Cluster,
   url: "http://localhost:9200",
   api: Elasticsearch.API.HTTP,
-  json_library: Jason,
-  username: "elastic",
-  password: "123456"
+  json_library: Jason
+  # username: "elastic",
+  # password: "123456"
 
   config :practice1, Practice1.Redis,
   host: "localhost",

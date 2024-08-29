@@ -1,7 +1,7 @@
 defmodule Practice1.Elasticsearch.Client do
   @url "http://localhost:9200"
   @username "elastic"
-  @password "123456"
+  @password "Z2RZk5a5LjvWfzTr*P6O"
 
   def index(index, id, body) do
     url = "#{@url}/#{index}/_doc/#{id}"
